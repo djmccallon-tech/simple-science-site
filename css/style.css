@@ -1,0 +1,187 @@
+/* Simple Science — base styles
+   System fonts only: no external requests, loads instantly. */
+
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --ink: #1c1e26;
+  --ink-soft: #52565f;
+  --border: #e6e3dd;
+  --accent: #1f6f5c;       /* deep teal — links, headline accents */
+  --accent-soft: #e7f2ef;
+  --established: #1f6f5c;  /* confidence: well-established */
+  --established-bg: #e7f2ef;
+  --early: #9a6b00;        /* confidence: early evidence */
+  --early-bg: #faf1dd;
+  --preliminary: #a83e2c;  /* confidence: preliminary */
+  --preliminary-bg: #f8e9e6;
+  --max-width: 680px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.logo span { color: var(--accent); }
+.tagline {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-left: 4px;
+}
+nav a {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-left: 18px;
+}
+nav a:first-child { margin-left: 0; }
+
+/* Article list (homepage) */
+main { padding: 36px 0 64px; }
+
+.article-card {
+  display: block;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+.article-card:hover .card-title { text-decoration: underline; }
+.card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.card-date { font-size: 0.82rem; color: var(--ink-soft); }
+.card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+.card-gist { color: var(--ink-soft); font-size: 0.98rem; margin: 0; }
+
+/* Confidence badge */
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge-established { color: var(--established); background: var(--established-bg); }
+.badge-early { color: var(--early); background: var(--early-bg); }
+.badge-preliminary { color: var(--preliminary); background: var(--preliminary-bg); }
+
+/* Article page */
+.article-header { padding: 40px 0 8px; }
+.article-header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 14px 0 14px;
+}
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.gist-box {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+  margin: 24px 0 32px;
+  font-size: 1.05rem;
+}
+.gist-box p { margin: 0; }
+.gist-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+article h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+  margin: 34px 0 10px;
+}
+article p { margin: 0 0 14px; }
+
+.confidence-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 10px 0 20px;
+}
+
+.source-box {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.back-link { display: inline-block; margin: 30px 0 10px; font-size: 0.9rem; }
+
+/* About page */
+.promise-list { padding-left: 20px; }
+.promise-list li { margin-bottom: 10px; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 0 40px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 480px) {
+  .article-header h1 { font-size: 1.6rem; }
+  .card-title { font-size: 1.15rem; }
+}
